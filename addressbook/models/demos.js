@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //set up db object model
-const contact = new Schema({
+const Contact = new Schema({
     lastName: { type: String, required: true },
     firstName: { type: String, required: true },
     email: { type: String, required: false },
@@ -11,4 +11,4 @@ const contact = new Schema({
     address: { type: String, required: false }
 })
 
-module.exports = mongoose.model("Contacts", contact);
+module.exports = mongoose.model("Contacts", Contact);

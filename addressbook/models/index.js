@@ -1,3 +1,4 @@
+//encapsulate file
 module.exports = {
-    contact: require("./demos")
+    Contact: require("./demos")
 };
