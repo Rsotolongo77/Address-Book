@@ -8,7 +8,8 @@ const Contact = new Schema({
     email: { type: String, required: false },
     phoneNumber: { type: String, required: true },
     birthDate: { type: String, required: false },
-    address: { type: String, required: false }
+    address: { type: String, required: false },
+    notes: { type: String, required: false }
 })
 
 module.exports = mongoose.model("Contacts", Contact);
