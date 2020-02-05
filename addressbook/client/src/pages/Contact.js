@@ -30,11 +30,11 @@ class Contacts extends Component {
   }
 
   //make API call for all contacts
-  //wait for results then..
-  //set new state with results
   loadContacts = () => {
     API.getAllContacts()
+      //wait for results then..
       .then(res =>
+        //set new state with results
         this.setState({
           contacts: res.data, lastName: "", firstName: "",
           email: "", phoneNumber: "", birthDate: "",
@@ -48,9 +48,10 @@ class Contacts extends Component {
 
   //make API call to delete a contact. passing in id via req.params
   deleteContact = id => {
+
     API.deleteContact(id)
       .then(res => this.loadContacts())
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
   };
 
   //function to get values from input elements and set them in state 
@@ -134,7 +135,7 @@ class Contacts extends Component {
                 disabled={!(this.state.lastName && this.state.firstName)}
                 onClick={this.handleFormSubmit}>
                 Submit Contact
-                            </FormBtn>
+              </FormBtn>
             </form>
           </Col>
 
@@ -147,7 +148,7 @@ class Contacts extends Component {
               <List>
                 {this.state.contacts.map(contact => (
                   <ListItem key={contact._id}>
-                    <Link to={"/contact/" + contact._id}>
+                    <Link to={"/contacts/" + contact._id}>
                       <strong>
                         {contact.lastName}
                         {contact.firstName}

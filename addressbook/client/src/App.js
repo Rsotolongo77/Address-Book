@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contacts from "./pages/Contact";
+import Detail from "./pages/Detail";
 
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Contacts} />
           <Route exact path="/contacts" component={Contacts} />
+          <Route exact path="/contacts/:id" component={Detail} />
         </Switch>
       </div>
     </Router>
