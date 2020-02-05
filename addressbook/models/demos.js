@@ -6,7 +6,7 @@ const Contact = new Schema({
     lastName: { type: String, required: true },
     firstName: { type: String, required: true },
     email: { type: String, required: false },
-    phoneNumber: { type: String, required: true },
+    phoneNumber: { type: String, required: false },
     birthDate: { type: String, required: false },
     address: { type: String, required: false },
     notes: { type: String, required: false }
