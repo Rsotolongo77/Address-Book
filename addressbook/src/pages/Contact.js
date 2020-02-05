@@ -10,7 +10,7 @@ import { Input, TextArea, FormBtn, SearchBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
 
 //class component to manipulate state 
-class Books extends Component {
+class Contacts extends Component {
 
     //initialize state 
     state = {
@@ -144,11 +144,34 @@ class Books extends Component {
                         <Jumbotron>
                             <h1>Contacts entered into db</h1>
                         </Jumbotron>
-
+                        {this.state.books.length ? (
+                            <List>
+                                {this.state.contacts.map(contact => (
+                                    <ListItem key={contact._id}>
+                                        <Link to={"/contact/" + contact._id}>
+                                            <strong>
+                                                {contact.lastName}
+                                                {contact.firstName}
+                                                {contact.email}
+                                                {contact.phoneNumber}
+                                                {contact.birthDate}
+                                                {contact.address}
+                                                {contact.notes}
+                                            </strong>
+                                        </Link>
+                                        <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        ) : (
+                                <h3>No Contacts</h3>
+                            )}
                     </Col>
                 </Row>
             </Container>
-        )
+        );
     }
 
 }
+
+export default Contacts
