@@ -26,7 +26,7 @@ class Contacts extends Component {
 
     //have ready before render
     componentWillMount() {
-        this.loadContacts
+        this.loadContacts()
     }
 
     //make API call for all contacts
@@ -144,7 +144,7 @@ class Contacts extends Component {
                         <Jumbotron>
                             <h1>Contacts entered into db</h1>
                         </Jumbotron>
-                        {this.state.books.length ? (
+                        {this.state.contacts.length ? (
                             <List>
                                 {this.state.contacts.map(contact => (
                                     <ListItem key={contact._id}>
