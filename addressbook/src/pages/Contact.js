@@ -101,32 +101,32 @@ class Contacts extends Component {
                                 placeholder="Last Name (required)" />
                             <Input
                                 value={this.state.firstName}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="firstName"
                                 placeholder="First Name (required)" />
                             <Input
                                 value={this.state.email}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="email"
                                 placeholder="Email" />
                             <Input
                                 value={this.state.phoneNumber}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="phoneNumber"
                                 placeholder="Phone Number" />
                             <Input
                                 value={this.state.birthDate}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="birthDate"
                                 placeholder="Birth Date" />
                             <Input
                                 value={this.state.address}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="address"
                                 placeholder="Address" />
                             <TextArea
                                 value={this.state.notes}
-                                onchange={this.handleInputChange}
+                                onChange={this.handleInputChange}
                                 name="notes"
                                 placeholder="Notes" />
 
@@ -140,7 +140,7 @@ class Contacts extends Component {
                     </Col>
 
 
-                    <Col size="md-6">
+                    <Col size="md-12">
                         <Jumbotron>
                             <h1>Contacts entered into db</h1>
                         </Jumbotron>
