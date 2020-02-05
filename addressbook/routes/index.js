@@ -9,7 +9,7 @@ router.use("/api", apiRoutes);
 
 //re-route if no API hit
 router.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 module.exports = router;
