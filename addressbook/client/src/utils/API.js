@@ -19,7 +19,7 @@ export default {
   },
   //update contact 
   updateContact: function (id, data) {
-    return axios.put("/api/trucks/truck/" + id, data);
+    return axios.put("/api/contacts/" + id, data);
   }
 
 };

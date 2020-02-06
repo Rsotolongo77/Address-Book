@@ -25,11 +25,3 @@ export function FormBtn(props) {
     </button>
   );
 }
-
-export function SearchBtn(props) {
-  return (
-    <button {...props} className="btn" id="searchBtn">
-      {props.children}
-    </button>
-  );
-}
