@@ -64,11 +64,13 @@ class EditContact extends Component {
     render() {
         return (
             <Container fluid>
-                <Row>
-                    <Col size="md-6">
+                <row>
+                    <Col size="md-12">
                         <Jumbotron>
-                            <h1>Address Book Challenge</h1>
-                            <Link to="/">← Back to Address Book</Link>
+                            <h1 id="header">Michael Scott Paper Company</h1>
+                            <h1 className="display-4">Directory</h1>
+                            <Link to={"/add"} id="addLink">Add Contact</Link>
+                            <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
                         <form onSubmit={this.handleFormSubmit}>
@@ -116,7 +118,7 @@ class EditContact extends Component {
                   </FormBtn>
                         </form>
                     </Col>
-                </Row>
+                </row>
             </Container>
         );
     }
