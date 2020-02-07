@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import SearchJumbo from "../components/SearchJumbo";
@@ -21,27 +21,29 @@ class Detail extends Component {
     render() {
         return (
             <Container fluid>
-                <Row>
+                <row id="rowDetails">
                     <Col size="md-12">
-                        <SearchJumbo />
                         <Jumbotron>
-                            <h1>
-                                {this.state.contact.lastName}
-                                {this.state.contact.firstName}
-                                {this.state.contact.email}
-                                {this.state.contact.phoneNumber}
-                                {this.state.contact.birthDate}
-                                {this.state.contact.address}
-                                {this.state.contact.notes}
-                            </h1>
+                            <h1 id="header">Michael Scott Paper Company</h1>
+                            <h1 className="display-4">Directory</h1>
+                            <Link to={"/add"} id="addLink">Add Contact</Link>
+                            <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
+                        <SearchJumbo />
+                        <jumbotron id="detailJumbo">
+                            <div>
+                                <h2>First Name:  {this.state.contact.firstName}</h2>
+                                <h2>Last Name:  {this.state.contact.lastName}</h2>
+                                <br></br>
+                                <h2>Email:  {this.state.contact.email}</h2>
+                                <h2>Phone Number:  {this.state.contact.phoneNumber}</h2>
+                                <h2>Birthdate:  {this.state.contact.birthDate}</h2>
+                                <h2>Address:  {this.state.contact.address}</h2>
+                                <h2>Notes:  {this.state.contact.notes}</h2>
+                            </div>
+                        </jumbotron>
                     </Col>
-                </Row>
-                <Row>
-                    <Col size="md-2">
-                        <Link to="/">← Back to Address Book</Link>
-                    </Col>
-                </Row>
+                </row>
             </Container>
         )
     }

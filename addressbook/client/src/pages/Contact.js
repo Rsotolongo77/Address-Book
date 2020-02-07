@@ -56,7 +56,7 @@ class Contacts extends Component {
   render() {
     return (
       <Container fluid>
-        <row>
+        <row id="rowGen">
           <Col size="md-12" >
             <Jumbotron>
               <h1 id="header">Michael Scott Paper Company</h1>

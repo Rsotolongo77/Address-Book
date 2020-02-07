@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Container, Row, Col } from "../components/Grid";
+import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
 import { Link } from "react-router-dom";
@@ -55,7 +55,7 @@ class AddContact extends Component {
     render() {
         return (
             <Container fluid>
-                <row>
+                <row id="rowGen">
                     <Col size="md-12">
                         <Jumbotron>
                             <h1 id="header">Michael Scott Paper Company</h1>
