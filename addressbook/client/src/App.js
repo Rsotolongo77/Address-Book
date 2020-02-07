@@ -4,7 +4,6 @@ import Contacts from "./pages/Contact";
 import Detail from "./pages/Detail";
 import AddContact from "./pages/Add";
 import EditContact from "./pages/Edit";
-
 import './App.css';
 
 function App() {

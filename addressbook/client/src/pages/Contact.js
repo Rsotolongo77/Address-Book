@@ -5,7 +5,7 @@ import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "../components/Grid";
+import { Col, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import SearchJumbo from "../components/SearchJumbo";
 
@@ -56,11 +56,12 @@ class Contacts extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-12">
+        <row>
+          <Col size="md-12" >
             <Jumbotron>
-              <h1>Address Book Challenge</h1>
-              <Link to={"/add"}>Add Contact</Link>
+              <h1 id="header">Michael Scott Paper Company</h1>
+              <h1 className="display-4">Directory</h1>
+              <Link to={"/add"} id="addLink">Add Contact</Link>
             </Jumbotron>
             <SearchJumbo />
             {this.state.contacts.length ? (
@@ -69,17 +70,11 @@ class Contacts extends Component {
                   <ListItem key={contact._id}>
                     <Link to={"/contacts/" + contact._id}>
                       <strong>
-                        {contact.lastName}
-                        {contact.firstName}
-                        {contact.email}
-                        {contact.phoneNumber}
-                        {contact.birthDate}
-                        {contact.address}
-                        {contact.notes}
+                        <h2>{contact.lastName}, {contact.firstName}</h2>
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
-                    <Link to={"/edit/" + contact._id}>Edit Contact</Link>
+                    <Link id="editBtn" to={"/edit/" + contact._id}>Edit</Link>
                   </ListItem>
                 ))}
               </List>
@@ -87,7 +82,7 @@ class Contacts extends Component {
                 <h3>No Contacts</h3>
               )}
           </Col>
-        </Row>
+        </row>
       </Container>
     );
   }

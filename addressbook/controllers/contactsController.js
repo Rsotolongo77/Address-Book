@@ -17,7 +17,7 @@ module.exports = {
   },
   findByCategory: function (req, res) {
     db.Contact
-      .find({ firstName: req.params.category })
+      .find({ lastName: req.params.category })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },

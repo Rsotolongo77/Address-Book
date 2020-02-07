@@ -1,0 +1,76 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: url("./images/addressBook.jpg");
+}
+
+row {
+    justify-content: center;
+    display: inline-block;
+    margin-top: 6rem;
+    padding: 4rem;
+    background-color: rgba(90, 90, 90, 0.438);
+    border-radius: 10px;
+}
+
+.jumbotron {
+    background-color: blanchedalmond;
+    padding: 2rem;
+    text-align: center;
+}
+
+#addLink {
+    color: rgb(158, 103, 71);
+    font-size: larger;
+    font-weight: 450;
+}
+
+#formBtn {
+    margin-bottom: 3rem;
+    font-weight: 500;
+    font-size: small;
+    background-color: rgba(241, 175, 113, 0.856);
+    border-radius: 3px;
+}    
+
+#listItem{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: .2rem;
+    margin-left: 1rem;
+}
+
+#deleteBtn {
+    background-color: rgba(243, 113, 113, 0.555);
+    color: rgb(68, 68, 68);
+    font-size: smaller;
+    padding: .3rem;
+    border-radius: 3px;
+    margin-right: 1rem;
+}
+
+#editBtn {
+    background-color: rgba(113, 133, 243, 0.568);
+    color: rgb(68, 68, 68);
+    font-size: smaller;
+    padding: .3rem;
+    border-radius: 3px;
+}
+
+#editBtn:hover {
+    text-decoration: none;
+}
+
