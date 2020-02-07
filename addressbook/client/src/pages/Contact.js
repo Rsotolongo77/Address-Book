@@ -35,9 +35,7 @@ class Contacts extends Component {
       .then(res =>
         //set new state with results
         this.setState({
-          contacts: res.data, lastName: "", firstName: "",
-          email: "", phoneNumber: "", birthDate: "",
-          address: "", notes: ""
+          contacts: res.data
         })
       )
 
@@ -60,7 +58,7 @@ class Contacts extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Contacts entered into db</h1>
+              <h1>Address Book Challenge</h1>
               <Link to={"/add"}>Add Contact</Link>
             </Jumbotron>
             {this.state.contacts.length ? (

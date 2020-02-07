@@ -21,8 +21,8 @@ class EditContact extends Component {
     componentDidMount() {
         API.getContact(this.props.match.params.id)
             .then(res => this.setState({
-                contact: res.data, lastName: "", firstName: "",
-                email: "", phoneNumber: "", birthDate: "", address: "", notes: ""
+                contact: res.data, lastName: res.data.lastName, firstName: res.data.firstName,
+                email: res.data.email, phoneNumber: res.data.phoneNumber, birthDate: res.data.birthdate, address: res.data.address, notes: res.data.notes
             }))
             .catch(err => console.log(err));
     }

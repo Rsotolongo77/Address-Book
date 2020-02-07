@@ -15,6 +15,12 @@ module.exports = {
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
+  findByCategory: function (req, res) {
+    db.Contact
+      .find({ firstName: req.params.category })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.Contact
       .create(req.body)

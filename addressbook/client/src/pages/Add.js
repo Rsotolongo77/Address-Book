@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import SearchJumbo from "../components/SearchJumbo";
 
 class AddContact extends Component {
 
@@ -58,6 +59,7 @@ class AddContact extends Component {
                         <Jumbotron>
                             <h1>Address Book Challenge</h1>
                         </Jumbotron>
+                        <SearchJumbo />
                         <form>
                             <Input
                                 value={this.state.lastName}

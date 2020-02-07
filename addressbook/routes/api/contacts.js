@@ -17,5 +17,10 @@ router
   .put(contactsController.update)
   .delete(contactsController.remove);
 
+//matches with "api/contacts/all/:category"
+router
+  .route("/all/:category")
+  .get(contactsController.findByCategory)
+
 module.exports = router;
 
