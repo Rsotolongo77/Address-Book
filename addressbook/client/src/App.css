@@ -42,7 +42,8 @@ row {
     margin-bottom: 3rem;
     font-weight: 500;
     font-size: small;
-    background-color: rgba(241, 175, 113, 0.856);
+    background-color: rgb(44, 44, 44);
+    color: white;
     border-radius: 3px;
 }    
 
