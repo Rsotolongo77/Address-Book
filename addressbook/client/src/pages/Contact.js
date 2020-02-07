@@ -7,6 +7,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "../components/Grid";
 import { List, ListItem } from "../components/List";
+import SearchJumbo from "../components/SearchJumbo";
 
 //class component to manipulate state 
 class Contacts extends Component {
@@ -61,6 +62,7 @@ class Contacts extends Component {
               <h1>Address Book Challenge</h1>
               <Link to={"/add"}>Add Contact</Link>
             </Jumbotron>
+            <SearchJumbo />
             {this.state.contacts.length ? (
               <List>
                 {this.state.contacts.map(contact => (

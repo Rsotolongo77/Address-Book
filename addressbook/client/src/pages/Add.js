@@ -4,6 +4,7 @@ import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
+import { Link } from "react-router-dom";
 
 class AddContact extends Component {
 
@@ -58,6 +59,7 @@ class AddContact extends Component {
                     <Col size="md-6">
                         <Jumbotron>
                             <h1>Address Book Challenge</h1>
+                            <Link to="/">← Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
                         <form>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import SearchJumbo from "../components/SearchJumbo";
 
 class Detail extends Component {
     state = {
@@ -22,6 +23,7 @@ class Detail extends Component {
             <Container fluid>
                 <Row>
                     <Col size="md-12">
+                        <SearchJumbo />
                         <Jumbotron>
                             <h1>
                                 {this.state.contact.lastName}
