@@ -19,7 +19,7 @@ class AddContact extends Component {
         notes: ""
     };
 
-    //function to get values from input elements and set them in state 
+    //function to get values on key event and set them in input value state
     handleInputChange = e => {
         const { name, value } = e.target;
         this.setState({ [name]: value });

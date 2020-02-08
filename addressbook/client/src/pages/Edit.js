@@ -19,6 +19,7 @@ class EditContact extends Component {
         notes: ""
     };
 
+    //return obect with values in db and then set to state for possible edit
     componentDidMount() {
         API.getContact(this.props.match.params.id)
             .then(res => this.setState({

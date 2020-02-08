@@ -11,7 +11,7 @@ class Detail extends Component {
         contact: {}
     };
 
-    //brings up correct contact object via req params by react router
+    //brings back correct contact object from db via req params 
     componentDidMount() {
         API.getContact(this.props.match.params.id)
             .then(res => this.setState({ contact: res.data }))

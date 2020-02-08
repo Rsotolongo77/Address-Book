@@ -6,7 +6,7 @@ import { List, ListItem } from "../List";
 import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn";
 
-//client side filter for search component
+
 class SearchJumbo extends Component {
     state = {
         lastName: "",
@@ -39,7 +39,7 @@ class SearchJumbo extends Component {
                                 type="text"
                                 value={this.state.lastName}
                                 onChange={this.handleInputChange}
-                                placeholder="Enter Name" />
+                                placeholder="Enter Last Name (case sensitive)" />
                             <FormBtn
                                 onClick={this.handleFormSubmit}>
                                 Search
