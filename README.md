@@ -17,7 +17,7 @@
 ###  Source code from my repo can by forked. NPM install Mongoose, Axios and Express. User will also need  MongoDB database application installed locally. 
 ### Once all dependencies are installed the program can be run by starting the server file in node via terminal; then inserting command npm start. 
 
-![ ](client/src/images/pic1.png)
+![ ](addressbook/client/src/images/pic1.png)
 
 ![ ](client/src/images/pic2.png)
 
