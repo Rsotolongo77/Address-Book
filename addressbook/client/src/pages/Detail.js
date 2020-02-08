@@ -32,14 +32,16 @@ class Detail extends Component {
                         <SearchJumbo />
                         <jumbotron id="detailJumbo">
                             <div>
-                                <h2>First Name:  {this.state.contact.firstName}</h2>
-                                <h2>Last Name:  {this.state.contact.lastName}</h2>
+                                <h2>First Name: {this.state.contact.firstName}</h2>
+                                <h2>Last Name: {this.state.contact.lastName}</h2>
                                 <br></br>
-                                <h2>Email:  {this.state.contact.email}</h2>
-                                <h2>Phone Number:  {this.state.contact.phoneNumber}</h2>
-                                <h2>Birthdate:  {this.state.contact.birthDate}</h2>
-                                <h2>Address:  {this.state.contact.address}</h2>
-                                <h2>Notes:  {this.state.contact.notes}</h2>
+                                <h2>Email: {this.state.contact.email}</h2>
+                                <h2>Phone Number: {this.state.contact.phoneNumber}</h2>
+                                <br></br>
+                                <h2>Birthdate: {this.state.contact.birthDate}</h2>
+                                <h2>Address: {this.state.contact.address}</h2>
+                                <br></br>
+                                <h2>Notes: {this.state.contact.notes}</h2>
                             </div>
                         </jumbotron>
                     </Col>

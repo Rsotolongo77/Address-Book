@@ -20,7 +20,7 @@ export function TextArea(props) {
 
 export function FormBtn(props) {
   return (
-    <button {...props} className="btn" id="formBtn">
+    <button {...props} className="btn" id="formBtn" type="submit">
       {props.children}
     </button>
   );

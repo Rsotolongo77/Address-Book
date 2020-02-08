@@ -10,7 +10,7 @@ import DeleteBtn from "../DeleteBtn";
 class SearchJumbo extends Component {
     state = {
         lastName: "",
-        contacts: []
+        contacts: {},
     };
 
     handleFormSubmit = e => {
@@ -19,8 +19,8 @@ class SearchJumbo extends Component {
             .then(res => this.setState({
                 contacts: res.data
             }))
-
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+        this.setState({ lastName: "" })
     };
 
     handleInputChange = e => {
@@ -28,36 +28,43 @@ class SearchJumbo extends Component {
     };
 
     render() {
+
         return (
             <Container>
-                <div>
-                    <Input
-                        type="text"
-                        value={this.state.lastName}
-                        onChange={this.handleInputChange}
-                        placeholder="Enter Name" />
-                    <FormBtn
-                        onClick={this.handleFormSubmit}>
-                        Search
+                <div id="searchRes">
+                    <div>
+                        <form onSubmit={this.handleFormSubmit}>
+                            <Input
+                                name="searchField"
+                                type="text"
+                                value={this.state.lastName}
+                                onChange={this.handleInputChange}
+                                placeholder="Enter Name" />
+                            <FormBtn
+                                onClick={this.handleFormSubmit}>
+                                Search
                   </FormBtn>
+                        </form>
+                    </div>
+                    {this.state.contacts.length ? (
+                        <List>
+                            {this.state.contacts.map(contact => (
+                                <ListItem key={contact._id}>
+                                    <Link to={"/contacts/" + contact._id}>
+                                        <strong>
+                                            <h2>{contact.lastName}, {contact.firstName}</h2>
+                                        </strong>
+                                    </Link>
+                                    <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
+                                    <Link id="editBtn" to={"/edit/" + contact._id}>Edit Contact</Link>
+                                </ListItem>
+
+                            ))}
+                        </List>
+                    ) : (
+                            null
+                        )}
                 </div>
-                {this.state.contacts.length ? (
-                    <List>
-                        {this.state.contacts.map(contact => (
-                            <ListItem key={contact._id}>
-                                <Link to={"/contacts/" + contact._id}>
-                                    <strong>
-                                        <h2>{contact.lastName}, {contact.firstName}</h2>
-                                    </strong>
-                                </Link>
-                                <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
-                                <Link id="editBtn" to={"/edit/" + contact._id}>Edit Contact</Link>
-                            </ListItem>
-                        ))}
-                    </List>
-                ) : (
-                        <h4></h4>
-                    )}
             </Container>
         );
     }

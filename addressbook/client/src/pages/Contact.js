@@ -41,7 +41,7 @@ class Contacts extends Component {
       )
 
       //if err, log
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
   };
 
   //make API call to delete a contact. passing in id via req.params
@@ -79,14 +79,15 @@ class Contacts extends Component {
                 ))}
               </List>
             ) : (
-                <h3>No Contacts</h3>
+                <h2 id="noCont">You Have No Contacts </h2>
               )}
           </Col>
         </row>
       </Container>
     );
   }
-
 }
+
+
 
 export default Contacts
