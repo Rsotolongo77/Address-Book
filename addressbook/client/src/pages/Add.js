@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 class AddContact extends Component {
 
     state = {
-        contacts: [],
         lastName: "",
         firstName: "",
         email: "",
