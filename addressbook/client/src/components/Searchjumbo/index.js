@@ -11,23 +11,31 @@ class SearchJumbo extends Component {
     state = {
         lastName: "",
         contacts: {},
+        results: true,
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
         API.getByName(this.state.lastName)
-            .then(res => this.setState({
-                contacts: res.data
-            }))
+            .then(res => {
+                this.setState({ contacts: res.data })
+                if (this.state.contacts[0]) {
+                    this.setState({ results: true })
+                }
+                else { this.setState({ results: false }) }
+            })
             .catch(err => console.log(err))
-        this.setState({ lastName: "" })
+        this.setState({ lastName: "" });
+
+
     };
 
     handleInputChange = e => {
-        this.setState({ lastName: e.target.value });
+        this.setState({ lastName: e.target.value })
     };
 
     render() {
+        console.log(this.state.results);
 
         return (
             <Container>
@@ -45,25 +53,31 @@ class SearchJumbo extends Component {
                                 Search
                   </FormBtn>
                         </form>
-                    </div>
-                    {this.state.contacts.length ? (
-                        <List>
-                            {this.state.contacts.map(contact => (
-                                <ListItem key={contact._id}>
-                                    <Link to={"/contacts/" + contact._id}>
-                                        <strong>
-                                            <h2>{contact.lastName}, {contact.firstName}</h2>
-                                        </strong>
-                                    </Link>
-                                    <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
-                                    <Link id="editBtn" to={"/edit/" + contact._id}>Edit Contact</Link>
-                                </ListItem>
-
-                            ))}
-                        </List>
-                    ) : (
+                        {this.state.results ? (
                             null
-                        )}
+                        ) : (
+                                <h1 id="noCont">No matches found</h1>
+                            )}
+
+                        {this.state.contacts.length ? (
+                            <List>
+                                {this.state.contacts.map(contact => (
+                                    <ListItem key={contact._id}>
+                                        <Link to={"/contacts/" + contact._id}>
+                                            <strong>
+                                                <h2>{contact.lastName}, {contact.firstName}</h2>
+                                            </strong>
+                                        </Link>
+                                        <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
+                                        <Link id="editBtn" to={"/edit/" + contact._id}>Edit Contact</Link>
+                                    </ListItem>
+
+                                ))}
+                            </List>
+                        ) : (
+                                null
+                            )}
+                    </div>
                 </div>
             </Container>
         );
