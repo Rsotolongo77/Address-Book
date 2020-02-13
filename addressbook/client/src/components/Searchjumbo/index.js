@@ -6,7 +6,6 @@ import { List, ListItem } from "../List";
 import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn";
 
-
 class SearchJumbo extends Component {
     state = {
         lastName: "",
@@ -16,7 +15,7 @@ class SearchJumbo extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        API.getByName(this.state.lastName)
+        API.getByName(this.state.lastName.toLowerCase())
             .then(res => {
                 this.setState({ contacts: res.data })
                 if (this.state.contacts[0]) {
@@ -34,6 +33,22 @@ class SearchJumbo extends Component {
         this.setState({ lastName: e.target.value })
     };
 
+    routeChange() {
+        let path = "/";
+        this.props.history.push(path);
+    }
+
+    deleteContact = id => {
+
+        API.deleteContact(id)
+            .then(res => window.location.reload())
+            .catch(err => console.log(err))
+    };
+
+    capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
     render() {
         console.log(this.state.results);
 
@@ -47,7 +62,7 @@ class SearchJumbo extends Component {
                                 type="text"
                                 value={this.state.lastName}
                                 onChange={this.handleInputChange}
-                                placeholder="Enter Last Name (case sensitive)" />
+                                placeholder="Enter Last Name" />
                             <FormBtn
                                 onClick={this.handleFormSubmit}>
                                 Search
@@ -65,7 +80,7 @@ class SearchJumbo extends Component {
                                     <ListItem key={contact._id}>
                                         <Link to={"/contacts/" + contact._id}>
                                             <strong>
-                                                <h2>{contact.lastName}, {contact.firstName}</h2>
+                                                <h2>{this.capitalize(contact.lastName)}, {this.capitalize(contact.firstName)}</h2>
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteContact(contact._id)} />

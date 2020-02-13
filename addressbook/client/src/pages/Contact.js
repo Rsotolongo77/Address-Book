@@ -52,6 +52,11 @@ class Contacts extends Component {
       .catch(err => console.log(err))
   };
 
+  //capitalize string correctly for display 
+  capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   //page view via react class required render method
   render() {
     return (
@@ -70,7 +75,7 @@ class Contacts extends Component {
                   <ListItem key={contact._id}>
                     <Link to={"/contacts/" + contact._id}>
                       <strong>
-                        <h2>{contact.lastName}, {contact.firstName}</h2>
+                        <h2>{this.capitalize(contact.lastName)}, {this.capitalize(contact.firstName)}</h2>
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
