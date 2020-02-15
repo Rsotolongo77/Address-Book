@@ -23,7 +23,7 @@ export default {
   },
   //get contact by name
   getByName: function (data) {
-    return axios.get("/api/contacts/all/" + data)
+    return axios.get("/api/contacts/all/" + data);
   }
 
 };

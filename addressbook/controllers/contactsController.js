@@ -17,7 +17,8 @@ module.exports = {
   },
   findByCategory: function (req, res) {
     db.Contact
-      .find({ lastName: req.params.category })
+      //search by first or lastname
+      .find({ $or: [{ lastName: req.params.category }, { firstName: req.params.category }] })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },

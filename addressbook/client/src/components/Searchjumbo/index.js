@@ -10,13 +10,14 @@ class SearchJumbo extends Component {
     state = {
         lastName: "",
         contacts: {},
-        results: true,
+        results: true
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
         API.getByName(this.state.lastName.toLowerCase())
             .then(res => {
+                console.log(res.data);
                 this.setState({ contacts: res.data })
                 if (this.state.contacts[0]) {
                     this.setState({ results: true })
@@ -33,13 +34,7 @@ class SearchJumbo extends Component {
         this.setState({ lastName: e.target.value })
     };
 
-    routeChange() {
-        let path = "/";
-        this.props.history.push(path);
-    }
-
     deleteContact = id => {
-
         API.deleteContact(id)
             .then(res => window.location.reload())
             .catch(err => console.log(err))
