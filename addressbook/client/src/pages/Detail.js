@@ -8,15 +8,34 @@ import SearchJumbo from "../components/SearchJumbo";
 class Detail extends Component {
     state = {
         //establish state as contact object
-        contact: {}
+        contact: {},
+        firstName: "",
+        lastName: ""
     };
 
     //brings back correct contact object from db via req params 
     componentDidMount() {
         API.getContact(this.props.match.params.id)
-            .then(res => this.setState({ contact: res.data }))
-            .catch(err => console.log(err));
-    }
+            .then(res => res.json())
+            .then(json => this.setState({ contact: json }))
+            .then(() => {
+                let fName = ""
+                fName = this.state.contact.firstName
+                fName = this.capitalize(fName)
+                console.log(fName)
+                this.setState({ firstName: fName })
+
+                let lName = ""
+                lName = this.state.contact.lastName
+                lName = this.capitalize(lName)
+                this.setState({ lastName: lName })
+            })
+            .catch(err => console.log(err))
+    };
+
+    capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
 
     render() {
         return (
@@ -32,8 +51,8 @@ class Detail extends Component {
                         <SearchJumbo />
                         <jumbotron id="detailJumbo">
                             <div>
-                                <h2>First Name: {this.state.contact.firstName}</h2>
-                                <h2>Last Name: {this.state.contact.lastName}</h2>
+                                <h2 id="trans">First Name: {this.state.firstName}</h2>
+                                <h2>Last Name: {this.state.lastName}</h2>
                                 <br></br>
                                 <h2>Email: {this.state.contact.email}</h2>
                                 <h2>Phone Number: {this.state.contact.phoneNumber}</h2>

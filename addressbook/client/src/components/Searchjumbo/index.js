@@ -8,14 +8,14 @@ import DeleteBtn from "../DeleteBtn";
 
 class SearchJumbo extends Component {
     state = {
-        lastName: "",
+        name: "",
         contacts: {},
         results: true
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
-        API.getByName(this.state.lastName.toLowerCase())
+        API.getByName(this.state.name.toLowerCase())
             .then(res => {
                 console.log(res.data);
                 this.setState({ contacts: res.data })
@@ -25,13 +25,13 @@ class SearchJumbo extends Component {
                 else { this.setState({ results: false }) }
             })
             .catch(err => console.log(err))
-        this.setState({ lastName: "" });
+        this.setState({ name: "" });
 
 
     };
 
     handleInputChange = e => {
-        this.setState({ lastName: e.target.value })
+        this.setState({ name: e.target.value })
     };
 
     deleteContact = id => {
@@ -45,7 +45,6 @@ class SearchJumbo extends Component {
     };
 
     render() {
-        console.log(this.state.results);
 
         return (
             <Container>
@@ -55,9 +54,9 @@ class SearchJumbo extends Component {
                             <Input
                                 name="searchField"
                                 type="text"
-                                value={this.state.lastName}
+                                value={this.state.name}
                                 onChange={this.handleInputChange}
-                                placeholder="Enter Last Name" />
+                                placeholder="Enter Contact Name" />
                             <FormBtn
                                 onClick={this.handleFormSubmit}>
                                 Search

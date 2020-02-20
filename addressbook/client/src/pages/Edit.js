@@ -23,11 +23,31 @@ class EditContact extends Component {
     componentDidMount() {
         API.getContact(this.props.match.params.id)
             .then(res => this.setState({
-                contact: res.data, lastName: res.data.lastName, firstName: res.data.firstName,
-                email: res.data.email, phoneNumber: res.data.phoneNumber, birthDate: res.data.birthdate, address: res.data.address, notes: res.data.notes
+                contact: res.data,
+                email: res.data.email,
+                phoneNumber: res.data.phoneNumber,
+                birthDate: res.data.birthdate,
+                address: res.data.address,
+                notes: res.data.notes
             }))
+            .then(() => {
+                let fName = ""
+                fName = this.state.contact.firstName
+                fName = this.capitalize(fName)
+                console.log(fName)
+                this.setState({ firstName: fName })
+
+                let lName = ""
+                lName = this.state.contact.lastName
+                lName = this.capitalize(lName)
+                this.setState({ lastName: lName })
+            })
             .catch(err => console.log(err));
-    }
+    };
+
+    capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
 
     //function to get values from input elements and set them in state 
     handleInputChange = e => {

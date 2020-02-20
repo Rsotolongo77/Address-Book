@@ -14,14 +14,7 @@ class Contacts extends Component {
 
   //initialize state 
   state = {
-    contacts: [],
-    lastName: "",
-    firstName: "",
-    email: "",
-    phoneNumber: "",
-    birthDate: "",
-    address: "",
-    notes: ""
+    contacts: []
   };
 
   //load right after render
@@ -33,10 +26,11 @@ class Contacts extends Component {
   loadContacts = () => {
     API.getAllContacts()
       //wait for results then..
-      .then(res =>
+      .then(res => res.json())
+      .then(json =>
         //set new state with results
         this.setState({
-          contacts: res.data
+          contacts: json
         })
       )
 
@@ -46,9 +40,8 @@ class Contacts extends Component {
 
   //make API call to delete a contact. passing in id via req.params
   deleteContact = id => {
-
     API.deleteContact(id)
-      .then(res => this.loadContacts())
+      .then(json => this.loadContacts())
       .catch(err => console.log(err))
   };
 

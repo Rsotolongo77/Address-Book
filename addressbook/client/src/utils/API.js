@@ -1,13 +1,15 @@
 import axios from "axios";
+//require fetch for nodejs
+const fetch = require('node-fetch');
 
 export default {
   //get all contacts
   getAllContacts: function () {
-    return axios.get("/api/contacts");
+    return fetch("/api/contacts");
   },
   //get contact by req-param
   getContact: function (id) {
-    return axios.get("/api/contacts/" + id);
+    return fetch("/api/contacts/" + id);
   },
   //deletes contact
   deleteContact: function (id) {

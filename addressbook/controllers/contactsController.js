@@ -7,7 +7,8 @@ module.exports = {
       .find(req.query)
       .sort({ lastName: 1 })
       .then(data => res.json(data))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(422).json(err))
+    console.log(res);
   },
   findById: function (req, res) {
     db.Contact
