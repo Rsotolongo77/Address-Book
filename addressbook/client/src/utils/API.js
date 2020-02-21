@@ -1,4 +1,3 @@
-import axios from "axios";
 //require fetch for nodejs
 const fetch = require('node-fetch');
 
