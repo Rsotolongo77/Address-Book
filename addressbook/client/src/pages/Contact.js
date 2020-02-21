@@ -78,7 +78,7 @@ class Contacts extends Component {
                 ))}
               </List>
             ) : (
-                <h2 id="noCont">You Have No Contacts </h2>
+                <h2 id="noCont">No Contacts </h2>
               )}
           </Col>
         </row>
