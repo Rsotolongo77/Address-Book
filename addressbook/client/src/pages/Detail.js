@@ -51,7 +51,7 @@ class Detail extends Component {
                         <SearchJumbo />
                         <jumbotron id="detailJumbo">
                             <div>
-                                <h2 id="trans">First Name: {this.state.firstName}</h2>
+                                <h2>First Name: {this.state.firstName}</h2>
                                 <h2>Last Name: {this.state.lastName}</h2>
                                 <br></br>
                                 <h2>Email: {this.state.contact.email}</h2>

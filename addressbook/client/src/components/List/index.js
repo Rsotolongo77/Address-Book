@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./list.css";
 
 //export functions to pass children onto list elements
 export function List({ children }) {

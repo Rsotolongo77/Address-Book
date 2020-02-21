@@ -1,5 +1,5 @@
 {
-  "name": "Address Book",
+  "name": "addressbook-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
