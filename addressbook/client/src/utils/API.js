@@ -13,19 +13,38 @@ export default {
   },
   //deletes contact
   deleteContact: function (id) {
-    return axios.delete("/api/contacts/" + id);
+    return fetch("/api/contacts/" + id, {
+      method: "DELETE"
+    });
   },
   //create contact
   submitContact: function (data) {
-    return axios.post("/api/contacts", data);
+    return fetch("/api/contacts", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
   },
   //update contact 
   updateContact: function (id, data) {
-    return axios.put("/api/contacts/" + id, data);
+    return fetch("/api/contacts/" + id, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
   },
   //get contact by name
   getByName: function (data) {
-    return axios.get("/api/contacts/all/" + data);
+    return fetch("/api/contacts/all/" + data, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
   }
 
 };

@@ -41,6 +41,7 @@ class Contacts extends Component {
   //make API call to delete a contact. passing in id via req.params
   deleteContact = id => {
     API.deleteContact(id)
+      .then(res => res.json())
       .then(json => this.loadContacts())
       .catch(err => console.log(err))
   };

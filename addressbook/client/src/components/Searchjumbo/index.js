@@ -16,9 +16,9 @@ class SearchJumbo extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
         API.getByName(this.state.name.toLowerCase())
-            .then(res => {
-                console.log(res.data);
-                this.setState({ contacts: res.data })
+            .then(res => res.json())
+            .then(json => {
+                this.setState({ contacts: json })
                 if (this.state.contacts[0]) {
                     this.setState({ results: true })
                 }

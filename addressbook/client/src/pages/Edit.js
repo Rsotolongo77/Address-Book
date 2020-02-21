@@ -22,19 +22,19 @@ class EditContact extends Component {
     //return obect with values in db and then set to state for possible edit
     componentDidMount() {
         API.getContact(this.props.match.params.id)
-            .then(res => this.setState({
-                contact: res.data,
-                email: res.data.email,
-                phoneNumber: res.data.phoneNumber,
-                birthDate: res.data.birthdate,
-                address: res.data.address,
-                notes: res.data.notes
+            .then(res => res.json())
+            .then(json => this.setState({
+                contact: json,
+                email: json.email,
+                phoneNumber: json.phoneNumber,
+                birthDate: json.birthdate,
+                address: json.address,
+                notes: json.notes
             }))
             .then(() => {
                 let fName = ""
                 fName = this.state.contact.firstName
                 fName = this.capitalize(fName)
-                console.log(fName)
                 this.setState({ firstName: fName })
 
                 let lName = ""
@@ -77,7 +77,27 @@ class EditContact extends Component {
                 address: this.state.address,
                 notes: this.state.notes
             })
-                .then(res => this.routeChange())
+                .then(res => res.json())
+                .then(json => this.setState({
+                    contact: json,
+                    email: json.email,
+                    phoneNumber: json.phoneNumber,
+                    birthDate: json.birthdate,
+                    address: json.address,
+                    notes: json.notes
+                }))
+                .then(() => {
+                    let fName = ""
+                    fName = this.state.contact.firstName
+                    fName = this.capitalize(fName)
+                    this.setState({ firstName: fName })
+
+                    let lName = ""
+                    lName = this.state.contact.lastName
+                    lName = this.capitalize(lName)
+                    this.setState({ lastName: lName })
+                })
+                .then(this.routeChange())
                 .catch(err => console.log(err));
         }
     };

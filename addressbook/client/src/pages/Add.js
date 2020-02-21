@@ -46,7 +46,8 @@ class AddContact extends Component {
                 address: this.state.address,
                 notes: this.state.notes
             })
-                .then(res => this.routeChange())
+                .then(res => res.json())
+                .then(json => this.routeChange())
                 .catch(err => console.log(err));
         }
     };
