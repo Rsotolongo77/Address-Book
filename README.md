@@ -7,17 +7,10 @@
 2. NodeJs
 3. Express
 4. MongoDB
-<<<<<<< HEAD
 5. Node-fetch
 6. Mongoose
 7. NPM
 8. Fetch API
-=======
-5. Fetch API 
-6. Mongoose
-7. NPM
-8. Node-fetch
->>>>>>> b9837fad9c76afff594a996db4ba6c597aa2ca04
 
 ## The application works by letting the user create an address book. Once a contact is created the user has the ability to edit or delete that contact. A search bar allows the user to find contacts already established in the address book. A detailed view of the contacts information is provided when a contact is selected. Contacts are displayed for the user in alphabetical order by last name.
 
