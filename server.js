@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3001;
 //express middleware and method for parsing JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(express.static(__dirname + '/client/build'));
 
 app.use(routes);
 
