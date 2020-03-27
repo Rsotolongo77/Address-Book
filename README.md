@@ -24,12 +24,12 @@
 
 
 
-![ ](addressbook/client/src/images/pic1.png)
+![ ](client/src/images/pic1.png)
 
-![ ](addressbook/client/src/images/pic2.png)
+![ ](client/src/images/pic2.png)
 
-![ ](addressbook/client/src/images/pic3.png)
+![ ](client/src/images/pic3.png)
 
-![ ](addressbook/client/src/images/pic4.png)
+![ ](client/src/images/pic4.png)
 
-![ ](addressbook/client/src/images/pic5.png)
+![ ](client/src/images/pic5.png)
