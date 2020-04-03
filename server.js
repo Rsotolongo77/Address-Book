@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 3001;
 //express middleware and method for parsing JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//for heroku deploy to use static file
 app.use(express.static(__dirname + '/client/build'));
 
 app.use(routes);

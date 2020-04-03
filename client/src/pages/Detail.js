@@ -22,7 +22,6 @@ class Detail extends Component {
                 let fName = ""
                 fName = this.state.contact.firstName
                 fName = this.capitalize(fName)
-                console.log(fName)
                 this.setState({ firstName: fName })
 
                 let lName = ""

@@ -8,7 +8,6 @@ module.exports = {
       .sort({ lastName: 1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err))
-    console.log(res);
   },
   findById: function (req, res) {
     db.Contact
@@ -37,7 +36,7 @@ module.exports = {
   },
   remove: function (req, res) {
     db.Contact
-      .findById({ _id: req.params.id })
+      .findById(req.params.id)
       .then(data => data.remove())
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
