@@ -44,7 +44,7 @@ class Detail extends Component {
                         <Jumbotron>
                             <h1 id="header">Michael Scott Paper Company</h1>
                             <h1 className="display-4">Directory</h1>
-                            <Link to={"/add"} id="addLink">Add Contact</Link>
+                            <Link to="/add" id="addLink">Add Contact</Link>
                             <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />

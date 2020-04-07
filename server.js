@@ -22,6 +22,6 @@ app.use(routes);
 //connect to mongo db
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/addressbook");
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(` Server now listening on PORT: ${PORT} `);
 });

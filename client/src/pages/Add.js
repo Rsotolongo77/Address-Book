@@ -65,37 +65,30 @@ class AddContact extends Component {
                         <SearchJumbo />
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
-                                value={this.state.lastName}
                                 onChange={this.handleInputChange}
                                 name="lastName"
                                 placeholder="Last Name (required)" />
                             <Input
-                                value={this.state.firstName}
                                 onChange={this.handleInputChange}
                                 name="firstName"
                                 placeholder="First Name (required)" />
                             <Input
-                                value={this.state.email}
                                 onChange={this.handleInputChange}
                                 name="email"
                                 placeholder="Email" />
                             <Input
-                                value={this.state.phoneNumber}
                                 onChange={this.handleInputChange}
                                 name="phoneNumber"
                                 placeholder="Phone Number" />
                             <Input
-                                value={this.state.birthDate}
                                 onChange={this.handleInputChange}
                                 name="birthDate"
                                 placeholder="Birth Date" />
                             <Input
-                                value={this.state.address}
                                 onChange={this.handleInputChange}
                                 name="address"
                                 placeholder="Address" />
                             <TextArea
-                                value={this.state.notes}
                                 onChange={this.handleInputChange}
                                 name="notes"
                                 placeholder="Notes" />
