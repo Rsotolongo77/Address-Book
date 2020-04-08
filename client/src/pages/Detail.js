@@ -19,13 +19,11 @@ class Detail extends Component {
             .then(res => res.json())
             .then(json => this.setState({ contact: json }))
             .then(() => {
-                let fName = ""
-                fName = this.state.contact.firstName
+                let fName = this.state.contact.firstName
                 fName = this.capitalize(fName)
                 this.setState({ firstName: fName })
 
-                let lName = ""
-                lName = this.state.contact.lastName
+                let lName = this.state.contact.lastName
                 lName = this.capitalize(lName)
                 this.setState({ lastName: lName })
             })
