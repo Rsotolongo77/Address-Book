@@ -54,7 +54,6 @@ class SearchJumbo extends Component {
                             <Input
                                 name="searchField"
                                 type="text"
-                                value={this.state.name}
                                 onChange={this.handleInputChange}
                                 placeholder="Enter Contact Name" />
                             <FormBtn
