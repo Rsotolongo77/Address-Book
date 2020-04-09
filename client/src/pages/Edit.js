@@ -32,13 +32,11 @@ class EditContact extends Component {
                 notes: json.notes
             }))
             .then(() => {
-                let fName = ""
-                fName = this.state.contact.firstName
+                let fName = this.state.contact.firstName
                 fName = this.capitalize(fName)
                 this.setState({ firstName: fName })
 
-                let lName = ""
-                lName = this.state.contact.lastName
+                let lName = this.state.contact.lastName
                 lName = this.capitalize(lName)
                 this.setState({ lastName: lName })
             })
@@ -87,13 +85,11 @@ class EditContact extends Component {
                     notes: json.notes
                 }))
                 .then(() => {
-                    let fName = ""
-                    fName = this.state.contact.firstName
+                    let fName = this.state.contact.firstName
                     fName = this.capitalize(fName)
                     this.setState({ firstName: fName })
 
-                    let lName = ""
-                    lName = this.state.contact.lastName
+                    let lName = this.state.contact.lastName
                     lName = this.capitalize(lName)
                     this.setState({ lastName: lName })
                 })
