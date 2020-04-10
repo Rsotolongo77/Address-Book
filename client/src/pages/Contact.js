@@ -60,7 +60,7 @@ class Contacts extends Component {
             <Jumbotron>
               <h1 id="header">Michael Scott Paper Company</h1>
               <h1 className="display-4">Directory</h1>
-              <Link to={"/add"} id="addLink">Add Contact</Link>
+              <Link to="/add" id="addLink">Add Contact</Link>
             </Jumbotron>
             <SearchJumbo />
             {this.state.contacts.length ? (
