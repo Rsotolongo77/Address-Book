@@ -3,21 +3,21 @@ const fetch = require('node-fetch');
 
 export default {
   //get all contacts
-  getAllContacts: function () {
+  getAllContacts: () => {
     return fetch("/api/contacts");
   },
   //get contact by req-param
-  getContact: function (id) {
+  getContact: (id) => {
     return fetch("/api/contacts/" + id);
   },
   //deletes contact
-  deleteContact: function (id) {
+  deleteContact: (id) => {
     return fetch("/api/contacts/" + id, {
       method: "DELETE"
     });
   },
   //create contact
-  submitContact: function (data) {
+  submitContact: (data) => {
     return fetch("/api/contacts", {
       method: "POST",
       headers: {
@@ -27,7 +27,7 @@ export default {
     });
   },
   //update contact 
-  updateContact: function (id, data) {
+  updateContact: (id, data) => {
     return fetch("/api/contacts/" + id, {
       method: "PUT",
       headers: {
@@ -37,7 +37,7 @@ export default {
     });
   },
   //get contact by name
-  getByName: function (data) {
+  getByName: (data) => {
     return fetch("/api/contacts/all/" + data, {
       method: "GET",
       headers: {
