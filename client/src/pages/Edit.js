@@ -31,15 +31,6 @@ class EditContact extends Component {
                 address: json.address,
                 notes: json.notes
             }))
-            .then(() => {
-                let fName = this.state.contact.firstName
-                fName = this.capitalize(fName)
-                this.setState({ firstName: fName })
-
-                let lName = this.state.contact.lastName
-                lName = this.capitalize(lName)
-                this.setState({ lastName: lName })
-            })
             .catch(err => console.log(err));
     };
 
