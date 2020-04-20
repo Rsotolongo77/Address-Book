@@ -8,7 +8,7 @@ const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 
 //re-route if no API hit
-router.use(function (req, res) {
+router.use((req, res) => {
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 

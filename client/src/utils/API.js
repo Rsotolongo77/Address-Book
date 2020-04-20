@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 export default {
   //get all contacts
   getAllContacts: () => {
-    return fetch("/api/contacts");
+    return fetch("/api/contacts/");
   },
   //get contact by req-param
   getContact: (id) => {
@@ -18,7 +18,7 @@ export default {
   },
   //create contact
   submitContact: (data) => {
-    return fetch("/api/contacts", {
+    return fetch("/api/contacts/", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

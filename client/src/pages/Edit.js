@@ -34,10 +34,6 @@ class EditContact extends Component {
             .catch(err => console.log(err));
     };
 
-    capitalize = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
     //function to get values from input elements and set them in state 
     handleInputChange = e => {
         const { name, value } = e.target;
