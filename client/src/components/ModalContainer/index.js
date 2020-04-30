@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import e from 'express';
 
-const AlertContainer = () => {
+const ModalContainer = () => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -24,4 +23,4 @@ const AlertContainer = () => {
     );
 }
 
-export default AlertContainer;
+export default ModalContainer;
