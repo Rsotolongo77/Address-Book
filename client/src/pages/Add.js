@@ -5,6 +5,7 @@ import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
 import { Link } from "react-router-dom";
+import Alert from '../components/Alert';
 
 class AddContact extends Component {
 
