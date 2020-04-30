@@ -5,7 +5,6 @@ import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
 import { Link } from "react-router-dom";
-import Alert from '../components/Alert';
 
 class AddContact extends Component {
 
@@ -94,8 +93,6 @@ class AddContact extends Component {
                                 name="notes"
                                 placeholder="Notes" />
                             <FormBtn
-                                //don't run if condition not met
-                                disabled={!(this.state.lastName && this.state.firstName)}
                                 onClick={this.handleFormSubmit}>
                                 Submit Contact
                         </FormBtn>
