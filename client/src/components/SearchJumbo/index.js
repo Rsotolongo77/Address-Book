@@ -5,12 +5,14 @@ import { FormBtn, Input } from "../Form";
 import { List, ListItem } from "../List";
 import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn";
+import Modal from '../Modal';
 
 class SearchJumbo extends Component {
     state = {
         name: "",
         contacts: {},
-        results: true
+        results: true,
+        show: false
     };
 
     handleFormSubmit = e => {
@@ -22,7 +24,7 @@ class SearchJumbo extends Component {
                 if (this.state.contacts[0]) {
                     this.setState({ results: true })
                 }
-                else { this.setState({ results: false }) }
+                else { this.setState({ results: false, show: true }) }
             })
             .catch(err => console.log(err))
         this.setState({ name: "" });
@@ -42,6 +44,14 @@ class SearchJumbo extends Component {
 
     capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
     };
 
     render() {
@@ -64,7 +74,9 @@ class SearchJumbo extends Component {
                         {this.state.results ? (
                             null
                         ) : (
-                                <h1 id="noCont">No matches found</h1>
+                                <Modal show={this.state.show} handleClose={this.hideModal}>
+                                    <h4>No matches found</h4>
+                                </Modal>
                             )}
 
                         {this.state.contacts.length ? (

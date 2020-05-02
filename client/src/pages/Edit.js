@@ -5,6 +5,7 @@ import API from "../utils/API";
 import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
+import Modal from '../components/Modal';
 
 class EditContact extends Component {
 
@@ -16,7 +17,8 @@ class EditContact extends Component {
         phoneNumber: "",
         birthDate: "",
         address: "",
-        notes: ""
+        notes: "",
+        show: false
     };
 
     //return obect with values in db and then set to state for possible edit
@@ -25,12 +27,23 @@ class EditContact extends Component {
             .then(res => res.json())
             .then(json => this.setState({
                 contact: json,
+                firstName: json.firstName,
+                lastName: json.lastName,
                 email: json.email,
                 phoneNumber: json.phoneNumber,
                 birthDate: json.birthdate,
                 address: json.address,
                 notes: json.notes
             }))
+            .then(() => {
+                let fName = this.state.contact.firstName
+                fName = this.capitalize(fName)
+                this.setState({ firstName: fName })
+
+                let lName = this.state.contact.lastName
+                lName = this.capitalize(lName)
+                this.setState({ lastName: lName })
+            })
             .catch(err => console.log(err));
     };
 
@@ -43,7 +56,7 @@ class EditContact extends Component {
     routeChange() {
         let path = "/";
         this.props.history.push(path);
-    }
+    };
 
     //function to handle form submit with current state, and pass to db
     handleFormSubmit = e => {
@@ -65,6 +78,8 @@ class EditContact extends Component {
                 .then(res => res.json())
                 .then(json => this.setState({
                     contact: json,
+                    firstName: json.firstName,
+                    lastName: json.lastName,
                     email: json.email,
                     phoneNumber: json.phoneNumber,
                     birthDate: json.birthdate,
@@ -83,6 +98,19 @@ class EditContact extends Component {
                 .then(this.routeChange())
                 .catch(err => console.log(err));
         }
+        else (this.showModal());
+    };
+
+    capitalize = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
     };
 
     render() {
@@ -97,6 +125,9 @@ class EditContact extends Component {
                             <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
+                        <Modal show={this.state.show} handleClose={this.hideModal}>
+                            <h4>First and last name is required</h4>
+                        </Modal>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
                                 value={this.state.lastName}
@@ -135,8 +166,6 @@ class EditContact extends Component {
                                 placeholder="Notes" />
 
                             <FormBtn
-                                //don't run if condition not met
-                                disabled={!(this.state.lastName && this.state.firstName)}
                                 onClick={this.handleFormSubmit}>
                                 Submit Edit
                   </FormBtn>
