@@ -17,7 +17,7 @@ class AddContact extends Component {
         birthDate: "",
         address: "",
         notes: "",
-        showModal: false
+        show: false
     };
 
     //function to get values on key event and set them in input value state
@@ -52,8 +52,16 @@ class AddContact extends Component {
                 .then(json => this.routeChange())
                 .catch(err => console.log(err));
         }
-        else (this.setState({ showModal: true }))
-    };
+        else (this.showModal());
+    }
+
+    showModal = () => {
+        this.setState({ show: true });
+    }
+
+    hideModal = () => {
+        this.setState({ show: false });
+    }
 
     render() {
         return (
@@ -66,9 +74,9 @@ class AddContact extends Component {
                             <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
-                        {this.state.showModal ? (
-                            <Modal />) : (null)
-                        }
+                        <Modal show={this.state.show} handleClose={this.hideModal}>
+                            <h4>First and last name is required</h4>
+                        </Modal>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
                                 onChange={this.handleInputChange}

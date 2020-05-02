@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const Modal = (props) => {
-    let modalClasses = 'modal';
-    if (props.show) {
-        modalClasses = 'modal-open';
-    }
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+
     return (
-        <div className={modalClasses}>
-            <h4>First and last name are required.</h4>
+        <div className={showHideClassName}>
+            <section className="modal-main">
+                {children}
+                <button onClick={handleClose}>X</button>
+            </section>
         </div>
     );
-}
+};
 
 export default Modal;
 
