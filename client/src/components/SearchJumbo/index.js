@@ -9,7 +9,7 @@ import Modal from '../Modal';
 
 class SearchJumbo extends Component {
     state = {
-        name: "",
+        name: '',
         contacts: {},
         show: false
     };
@@ -55,7 +55,8 @@ class SearchJumbo extends Component {
                     <div>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
-                                name="searchField"
+                                name="name"
+                                value={this.state.name}
                                 type="text"
                                 onChange={this.handleInputChange}
                                 placeholder="Enter Contact Name" />
