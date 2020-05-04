@@ -64,8 +64,10 @@ body {
     background-color: rgba(243, 113, 113, 0.555);
     color: rgb(68, 68, 68);
     font-size: smaller;
-    padding: .3rem;
+    padding: .2rem;
     border-radius: 3px;
+    border: none;
+    height: 1.56rem;
     margin-right: 1rem;
 }
 
