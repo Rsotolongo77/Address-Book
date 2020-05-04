@@ -11,7 +11,6 @@ class SearchJumbo extends Component {
     state = {
         name: "",
         contacts: {},
-        results: true,
         show: false
     };
 
@@ -22,14 +21,12 @@ class SearchJumbo extends Component {
             .then(json => {
                 this.setState({ contacts: json })
                 if (this.state.contacts[0]) {
-                    this.setState({ results: true })
+                    this.hideModal()
                 }
-                else { this.setState({ results: false, show: true }) }
+                else { this.setState({ show: true }) }
             })
             .catch(err => console.log(err))
-        this.setState({ name: "" });
-
-
+        this.setState({ name: '' })
     };
 
     handleInputChange = e => {
@@ -44,10 +41,6 @@ class SearchJumbo extends Component {
 
     capitalize = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
-    showModal = () => {
-        this.setState({ show: true });
     };
 
     hideModal = () => {
@@ -71,12 +64,12 @@ class SearchJumbo extends Component {
                                 Search
                   </FormBtn>
                         </form>
-                        {this.state.results ? (
-                            null
+                        {this.state.show ? (
+                            <Modal show={this.state.show} handleClose={this.hideModal}>
+                                <h4>No matches found</h4>
+                            </Modal>
                         ) : (
-                                <Modal show={this.state.show} handleClose={this.hideModal}>
-                                    <h4>No matches found</h4>
-                                </Modal>
+                                null
                             )}
 
                         {this.state.contacts.length ? (
@@ -89,7 +82,7 @@ class SearchJumbo extends Component {
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteContact(contact._id)} />
-                                        <Link id="editBtn" to={"/edit/" + contact._id}>Edit Contact</Link>
+                                        <Link id="editBtn" to={"/edit/" + contact._id}>Edit</Link>
                                     </ListItem>
 
                                 ))}
