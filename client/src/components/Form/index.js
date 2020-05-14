@@ -15,9 +15,7 @@ const TextArea = props => (
 
 
 const FormBtn = props => (
-  <button {...props} className="btn" id="formBtn" type="submit">
-    {props.children}
-  </button>
+  <button {...props} className="btn" id="formBtn" type="submit" />
 );
 
 export { Input, TextArea, FormBtn };
