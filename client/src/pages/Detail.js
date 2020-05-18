@@ -37,7 +37,7 @@ class Detail extends Component {
     render() {
         return (
             <Container fluid>
-                <row id="rowDetails">
+                <div id="rowDetails">
                     <Col size="md-12">
                         <Jumbotron>
                             <h1 id="header">Michael Scott Paper Company</h1>
@@ -61,7 +61,7 @@ class Detail extends Component {
                             </div>
                         </jumbotron>
                     </Col>
-                </row>
+                </div>
             </Container>
         )
     }

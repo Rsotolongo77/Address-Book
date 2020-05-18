@@ -66,7 +66,7 @@ class AddContact extends Component {
     render() {
         return (
             <Container fluid>
-                <row id="rowGen">
+                <div id="rowGen">
                     <Col size="md-12">
                         <Jumbotron>
                             <h1 id="header">Michael Scott Paper Company</h1>
@@ -112,7 +112,7 @@ class AddContact extends Component {
                         </FormBtn>
                         </form>
                     </Col>
-                </row>
+                </div>
             </Container>
         );
     }
