@@ -55,7 +55,6 @@ class SearchJumbo extends Component {
                     <div>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
-                                name="name"
                                 value={this.state.name}
                                 type="text"
                                 onChange={this.handleInputChange}
