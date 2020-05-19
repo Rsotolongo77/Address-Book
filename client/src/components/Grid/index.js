@@ -1,6 +1,6 @@
 import React from "react";
 
-//export functions that allow use of bootstrap without worrying about class names
+//export functions that allow use of bootstrap without worrying about spacing issues with bootstraps fluid syntax 
 const Container = ({ fluid, children }) => (
   <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>
 );
