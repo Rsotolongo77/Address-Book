@@ -23,13 +23,14 @@ class Contacts extends Component {
   }
 
   //make API call for all contacts
-  loadContacts = async () => {
+  loadContacts = () => {
     API.getAllContacts()
       //wait for results then..
-      .then(res =>
+      .then(res => res.json())
+      .then(json =>
         //set new state with results
         this.setState({
-          contacts: res.data
+          contacts: json
         })
       )
 
