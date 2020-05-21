@@ -5,7 +5,6 @@ import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
 import { Link } from "react-router-dom";
-import Modal from '../components/Modal';
 
 class AddContact extends Component {
 
@@ -17,7 +16,6 @@ class AddContact extends Component {
         birthDate: "",
         address: "",
         notes: "",
-        show: false
     };
 
     //function to get values on key event and set them in input value state
@@ -55,14 +53,6 @@ class AddContact extends Component {
         else (this.showModal());
     }
 
-    showModal = () => {
-        this.setState({ show: true });
-    }
-
-    hideModal = () => {
-        this.setState({ show: false });
-    }
-
     render() {
         return (
             <Container fluid>
@@ -74,9 +64,6 @@ class AddContact extends Component {
                             <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
-                        <Modal show={this.state.show} handleClose={this.hideModal}>
-                            <h4>First and last name is required</h4>
-                        </Modal>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
                                 onChange={this.handleInputChange}

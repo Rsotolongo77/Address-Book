@@ -5,7 +5,6 @@ import API from "../utils/API";
 import { Container, Col } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchJumbo from "../components/SearchJumbo";
-import Modal from '../components/Modal';
 
 class EditContact extends Component {
 
@@ -18,7 +17,6 @@ class EditContact extends Component {
         birthDate: "",
         address: "",
         notes: "",
-        show: false
     };
 
     //return obect with values in db and then set to state for possible edit
@@ -105,14 +103,6 @@ class EditContact extends Component {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
-    showModal = () => {
-        this.setState({ show: true });
-    };
-
-    hideModal = () => {
-        this.setState({ show: false });
-    };
-
     render() {
         return (
             <Container fluid>
@@ -125,9 +115,6 @@ class EditContact extends Component {
                             <Link to="/" id="addLink">Back to Address Book</Link>
                         </Jumbotron>
                         <SearchJumbo />
-                        <Modal show={this.state.show} handleClose={this.hideModal}>
-                            <h4>First and last name is required</h4>
-                        </Modal>
                         <form onSubmit={this.handleFormSubmit}>
                             <Input
                                 value={this.state.lastName}
