@@ -23,7 +23,7 @@ class Contacts extends Component {
   }
 
   //make API call for all contacts
-  loadContacts = () => {
+  loadContacts = async () => {
     API.getAllContacts()
       //wait for results then..
       .then(res =>
