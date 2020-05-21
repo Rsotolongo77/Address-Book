@@ -26,11 +26,10 @@ class Contacts extends Component {
   loadContacts = () => {
     API.getAllContacts()
       //wait for results then..
-      .then(res => res.json())
-      .then(json =>
+      .then(res =>
         //set new state with results
         this.setState({
-          contacts: json
+          contacts: res.data
         })
       )
 
